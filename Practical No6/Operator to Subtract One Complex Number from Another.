@@ -1,0 +1,73 @@
+
+#include <iostream>                  // Header file for input and output
+using namespace std;                 // Use standard namespace
+
+// Define a class named Complex
+class Complex {
+private:
+    int real;                        // Variable to store real part
+    int imaginary;                   // Variable to store imaginary part
+
+public:
+    // Function to accept complex number
+    void accept() {
+        cout << "Enter real part: ";
+        cin >> real;                 // Read real part
+
+        cout << "Enter imaginary part: ";
+        cin >> imaginary;            // Read imaginary part
+    }
+
+    // Overload the - operator
+    Complex operator-(Complex c) {
+        Complex temp;                // Create temporary object
+
+        // Subtract real parts
+        temp.real = real - c.real;
+
+        // Subtract imaginary parts
+        temp.imaginary = imaginary - c.imaginary;
+
+        return temp;                 // Return the result
+    }
+
+    // Function to display complex number
+    void display() {
+        cout << real;
+
+        // Check whether imaginary part is positive or negative
+        if (imaginary >= 0) {
+            cout << " + " << imaginary << "i";
+        }
+        else {
+            cout << " - " << -imaginary << "i";
+        }
+
+        cout << endl;                // Move to next line
+    }
+};
+
+// Main function starts
+int main() {
+
+    Complex c1, c2, c3;              // Create three objects of Complex class
+
+    cout << "Enter first complex number:\n";
+    c1.accept();                     // Accept first complex number
+
+    cout << "\nEnter second complex number:\n";
+    c2.accept();                     // Accept second complex number
+
+    c3 = c1 - c2;                    // Subtract using overloaded - operator
+
+    cout << "\nFirst complex number: ";
+    c1.display();                    // Display first complex number
+
+    cout << "Second complex number: ";
+    c2.display();                    // Display second complex number
+
+    cout << "Subtraction result: ";
+    c3.display();                    // Display subtraction result
+
+    return 0;                        // End the program successfully
+}
