@@ -1,0 +1,34 @@
+
+#include <iostream>                  // Header file for input and output
+using namespace std;                 // Use standard namespace
+
+int main() {
+
+    int quantity;                    // Variable to store product quantity
+
+    cout << "Enter product quantity: ";
+    cin >> quantity;                 // Accept quantity from the user
+
+    try {                            // Start of try block
+
+        // Check whether quantity is zero or negative
+        if (quantity <= 0) {
+
+            throw quantity;          // Throw exception if quantity is invalid
+        }
+
+        // Display quantity if it is valid
+        cout << "Product quantity is: " << quantity << endl;
+        cout << "Valid product quantity." << endl;
+    }
+
+    catch (int q) {                  // Catch the integer exception
+
+        // Display error message
+        cout << "Exception caught!" << endl;
+        cout << "Invalid quantity: " << q << endl;
+        cout << "Quantity must be greater than zero." << endl;
+    }
+
+    return 0;                        // End the program successfully
+}
