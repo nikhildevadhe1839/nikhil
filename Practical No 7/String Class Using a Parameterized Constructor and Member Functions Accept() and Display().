@@ -1,0 +1,42 @@
+
+#include <iostream>                 // Header file for input and output
+#include <string>                   // Header file for string
+using namespace std;                // Use standard namespace
+
+// Define a class named String
+class String {
+private:
+    string str;                     // Variable to store a string
+
+public:
+    // Parameterized constructor to initialize the string
+    String(string s) {
+        str = s;                    // Assign the given string to str
+    }
+
+    // Function to accept a string from the user
+    void Accept() {
+        cout << "Enter a string: ";
+        getline(cin, str);          // Read the complete string including spaces
+    }
+
+    // Function to display the string
+    void Display() {
+        cout << "The string is: " << str << endl; // Display the string
+    }
+};
+
+// Main function starts
+int main() {
+
+    String s("Hello");              // Create object using parameterized constructor
+
+    cout << "Initial string: ";
+    s.Display();                    // Display the initialized string
+
+    s.Accept();                     // Call Accept() to accept a new string
+
+    s.Display();                    // Display the entered string
+
+    return 0;                       // End the program successfully
+}
