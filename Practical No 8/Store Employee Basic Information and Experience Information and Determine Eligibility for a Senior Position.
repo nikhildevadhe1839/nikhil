@@ -1,0 +1,72 @@
+
+#include <iostream>                 // Header file for input and output
+#include <string>                   // Header file for string
+using namespace std;                // Use standard namespace
+
+// Base class to store employee basic information
+class Employee {
+protected:
+    int id;                         // Variable to store employee ID
+    string name;                    // Variable to store employee name
+
+public:
+    // Function to accept employee basic information
+    void getBasicInfo() {
+        cout << "Enter Employee ID: ";
+        cin >> id;                  // Accept employee ID
+
+        cin.ignore();               // Clear input buffer
+
+        cout << "Enter Employee Name: ";
+        getline(cin, name);         // Accept employee name
+    }
+};
+
+// Base class to store employee experience information
+class Experience {
+protected:
+    int years;                      // Variable to store years of experience
+
+public:
+    // Function to accept employee experience
+    void getExperience() {
+        cout << "Enter years of experience: ";
+        cin >> years;               // Accept years of experience
+    }
+};
+
+// Derived class using multiple inheritance
+class SeniorEmployee : public Employee, public Experience {
+
+public:
+    // Function to display employee details and check eligibility
+    void checkEligibility() {
+
+        cout << "\nEmployee Details:" << endl;
+        cout << "Employee ID: " << id << endl;
+        cout << "Employee Name: " << name << endl;
+        cout << "Experience: " << years << " years" << endl;
+
+        // Check eligibility for senior position
+        if (years >= 5) {
+            cout << "Eligible for Senior Position." << endl;
+        }
+        else {
+            cout << "Not Eligible for Senior Position." << endl;
+        }
+    }
+};
+
+// Main function starts
+int main() {
+
+    SeniorEmployee emp;             // Create object of derived class
+
+    emp.getBasicInfo();             // Call function to accept basic information
+
+    emp.getExperience();            // Call function to accept experience
+
+    emp.checkEligibility();         // Check and display eligibility
+
+    return 0;                       // End the program successfully
+}
