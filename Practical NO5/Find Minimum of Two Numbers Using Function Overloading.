@@ -1,0 +1,38 @@
+
+#include <iostream>                 // Header file for input and output
+using namespace std;                // Use standard namespace
+
+// Function to find minimum of two integer numbers
+int minimum(int a, int b)
+{
+    return (a < b) ? a : b;          // Return smaller integer value
+}
+
+// Function overloading to find minimum of two float numbers
+float minimum(float a, float b)
+{
+    return (a < b) ? a : b;          // Return smaller floating-point value
+}
+
+// Main function starts
+int main()
+{
+    int x, y;                       // Declare two integer variables
+    float p, q;                     // Declare two floating-point variables
+
+    // Accept two integer numbers from the user
+    cout << "Enter two integers: ";
+    cin >> x >> y;
+
+    // Display the minimum integer number
+    cout << "Minimum integer = " << minimum(x, y) << endl;
+
+    // Accept two floating-point numbers from the user
+    cout << "Enter two floating-point numbers: ";
+    cin >> p >> q;
+
+    // Display the minimum floating-point number
+    cout << "Minimum floating-point number = " << minimum(p, q) << endl;
+
+    return 0;                       // End the program successfully
+}
