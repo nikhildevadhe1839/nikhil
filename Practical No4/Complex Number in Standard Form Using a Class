@@ -1,0 +1,45 @@
+
+#include <iostream>                 // Header file for input and output
+using namespace std;                // Use standard namespace
+
+// Define a class named Complex
+class Complex {
+private:
+    int real;                       // Variable to store real part
+    int imaginary;                  // Variable to store imaginary part
+
+public:
+    // Function to accept complex number
+    void accept() {
+        cout << "Enter real part: ";
+        cin >> real;                // Read real part
+
+        cout << "Enter imaginary part: ";
+        cin >> imaginary;           // Read imaginary part
+    }
+
+    // Function to display complex number
+    void display() {
+        cout << "Complex number is: ";
+
+        // Check if imaginary part is positive
+        if (imaginary >= 0) {
+            cout << real << " + " << imaginary << "i";
+        }
+        else {
+            cout << real << " - " << -imaginary << "i";
+        }
+    }
+};
+
+// Main function starts
+int main() {
+
+    Complex c;                      // Create object of Complex class
+
+    c.accept();                     // Call accept function
+
+    c.display();                    // Call display function
+
+    return 0;                       // End the program successfully
+}
