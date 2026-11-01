@@ -1,0 +1,52 @@
+#include <iostream>                         // Include input-output library
+using namespace std;                        // Use the standard namespace
+
+// Base class
+class Account
+{
+public:
+    // Virtual function to calculate returns
+    virtual void calculateReturns()
+    {
+        cout << "Calculating returns for Account." << endl;
+    }
+};
+
+// Derived class Savings
+class Savings : public Account
+{
+public:
+    // Override the base class virtual function
+    void calculateReturns() override
+    {
+        cout << "Savings Account: Returns are calculated at 4% interest." << endl;
+    }
+};
+
+// Derived class FixedDeposit
+class FixedDeposit : public Account
+{
+public:
+    // Override the base class virtual function
+    void calculateReturns() override
+    {
+        cout << "Fixed Deposit Account: Returns are calculated at 7% interest." << endl;
+    }
+};
+
+// Main function: program execution starts here
+int main()
+{
+    Account* acc;                            // Declare a base class pointer
+
+    Savings s;                               // Create a Savings object
+    FixedDeposit fd;                         // Create a FixedDeposit object
+
+    acc = &s;                                // Point to the Savings object
+    acc->calculateReturns();                 // Call Savings version at runtime
+
+    acc = &fd;                               // Point to the FixedDeposit object
+    acc->calculateReturns();                 // Call FixedDeposit version at runtime
+
+    return 0;                                // End the program successfully
+}
